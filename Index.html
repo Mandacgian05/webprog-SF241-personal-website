@@ -8,6 +8,8 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  
+
   <style>
     :root {
       --bg: #f8fafc;
@@ -121,6 +123,23 @@
       .hero {
         text-align: center;
       }
+      .card {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover animation */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+}
+.card {
+  will-change: transform;
+}
+
     }
   </style>
 </head>
