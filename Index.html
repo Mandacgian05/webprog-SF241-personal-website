@@ -1,212 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gian | Personal Website</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  
-
-  <style>
-    :root {
-      --bg: #f8fafc;
-      --text: #1e293b;
-      --primary: #2563eb;
-      --card: #ffffff;
-    }
-
-    body.dark {
-      --bg: #0f172a;
-      --text: #e5e7eb;
-      --card: #1e293b;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    header {
-      background: var(--card);
-      border-bottom: 1px solid #cbd5f5;
-    }
-
-    nav {
-      max-width: 1100px;
-      margin: auto;
-      padding: 1.2rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin-left: 1.2rem;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: var(--primary);
-    }
-
-    button.toggle {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 3rem 1.5rem;
-    }
-
-    h1, h2, h3 {
-      margin-bottom: 1rem;
-    }
-
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .hero img {
-      max-width: 260px;
-      border-radius: 50%;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    footer {
-      background: var(--card);
-      text-align: center;
-      padding: 1.5rem;
-      border-top: 1px solid #cbd5f5;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .hero {
-        text-align: center;
-      }
-      .card {
-  background: var(--card);
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* Hover animation */
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.15);
-}
-
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gian Mandac | Cybersecurity Portfolio</title>
+    <style>
+        :root { --bg-primary: #f4f4f9; --bg-secondary: #ffffff; --text-main: #333333; --text-light: #666666; --accent: #2c3e50; --highlight: #2980b9; --border-radius: 12px; }
+        [data-theme="dark"] { --bg-primary: #121212; --bg-secondary: #1e1e1e; --text-main: #e0e0e0; --text-light: #a0a0a0; --accent: #4fa3d1; }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; transition: 0.3s; }
+        
+        nav { background-color: var(--bg-secondary); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        nav .logo { font-weight: bold; font-size: 1.5rem; color: var(--accent); }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav a { text-decoration: none; color: var(--text-main); font-weight: 500; }
+        .theme-toggle { background: none; border: 1px solid var(--text-main); color: var(--text-main); padding: 5px 12px; cursor: pointer; border-radius: 20px; }
+        
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        
+        header.hero { text-align: center; padding: 3rem 1rem; background: var(--bg-secondary); margin-bottom: 2rem; border-radius: var(--border-radius); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        
+        /* IMAGE STYLING */
+        .profile-pic { 
+            width: 150px; 
+            height: 150px; 
+            object-fit: cover; 
+            border-radius: 50%; 
+            border: 4px solid var(--accent); 
+            margin-bottom: 1rem; 
+            background-color: #cccccc; 
+        }
+        
+        h1 { margin: 0.5rem 0; color: var(--accent); }
+        .subtitle { color: var(--highlight); font-weight: 600; }
+        h2 { margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent); display: inline-block; }
+        section { margin-bottom: 3rem; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--bg-secondary); padding: 1.5rem; border-radius: var(--border-radius); box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-left: 5px solid var(--accent); }
+        
+        table { width: 100%; border-collapse: collapse; background: var(--bg-secondary); border-radius: 8px; overflow: hidden; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background-color: var(--accent); color: #fff; }
+        
+        footer { text-align: center; padding: 2rem; color: var(--text-light); font-size: 0.9rem; }
+        @media (max-width: 600px) { nav { flex-direction: column; gap: 1rem; } }
+    </style>
 </head>
 <body>
 
-<header>
-  <nav>
-    <h2>Peter</h2>
-    <div>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <button class="toggle" onclick="toggleMode()">Dark Mode</button>
+    <nav>
+        <div class="logo">GM.</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#resources">Credits</a></li>
+        </ul>
+        <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+    </nav>
+
+    <div class="container">
+        
+        <header class="hero">
+            <img src=<a href="https://ibb.co/CKc34syV"><img src="https://i.ibb.co/CKc34syV/4cb49a5a-46be-4d58-9efa-6ef488a8db9a-1.jpg" alt="4cb49a5a-46be-4d58-9efa-6ef488a8db9a-1" border="0"></a>
+                
+                 
+            <h1>Gian Mandac</h1>
+            <p class="subtitle">BS Computer Forensics Student</p>
+            <p>2nd Year College Student | Cybersecurity Enthusiast</p>
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="card">
+                <p>
+                    Hi, I'm Gian Mandac. I am currently a 2nd-year student pursuing a <strong>Bachelor of Science in Computer Forensics</strong>. 
+                    I have a strong interest in digital investigations, network security, and secure coding. 
+                    This portfolio documents my journey in learning how to protect systems and analyze digital evidence.
+                </p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Academic Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Project A: Network Analysis</h3>
+                    <p>Conducted packet analysis using Wireshark to understand network traffic flow and identify potential security vulnerabilities.</p>
+                </div>
+                <div class="card">
+                    <h3>Project B: Database Security</h3>
+                    <p>Designed a secure ERD diagram for a business, focusing on user permissions and data integrity principles.</p>
+                </div>
+                <div class="card">
+                    <h3>Project C: Linux Hardening</h3>
+                    <p>Configured an Ubuntu server with SSH key authentication and firewall rules to practice server hardening techniques.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources">
+            <h2>Resources</h2>
+            <p>Resources used per rubric requirements:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Resource</th>
+                        <th>Usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MDN Web Docs</td>
+                        <td>HTML/CSS Reference.</td>
+                    </tr>
+                    <tr>
+                        <td>ImgBB / Local File</td>
+                        <td>Image Hosting.</td>
+                    </tr>
+                    <tr>
+                        <td>Google Gemini</td>
+                        <td>AI Code Generation for structure and layout.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
     </div>
-  </nav>
-</header>
 
-<section id="about">
-  <div class="hero">
-    <div>
-      <h1>Hi, I'm Gian</h1>
-      <p>I am a BSCS-SF Student passionate about web technologies, responsive design, and continuous learning.</p>
-    </div>
-    <img src="https://scontent.fceb2-2.fna.fbcdn.net/v/t39.30808-6/470133617_2045239089252308_6548275893951555664_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHqLAdn12uKy_1KGSG7bNDP_rkU71LEkw3-uRTvUsSTDWYv9NCGChgsoxqWprxkOYFZzzflMiT2ehvpfm7CuYlt&_nc_ohc=zWaLOASQ6dgQ7kNvwFrJ7hA&_nc_oc=Admmym6W7qAikPSjYhB5OawBr6QoLcdWpIWtH-FV949mGYrwBjDbf86C312Fk3YgqDw1Y2lTAiHGTonRjF8-nWHd&_nc_zt=23&_nc_ht=scontent.fceb2-2.fna&_nc_gid=OXhfRijG10C3VtgwxmGs9A&oh=00_AfmBICJT9aaGfemjIA41hR5Sg0RHg79TaYam7_wnUbgTFA&oe=69592135" alt="Profile Photo">
-  </div>
-</section>
+    <footer>
+        <p>&copy; 2026 Gian Mandac. All rights reserved.</p>
+    </footer>
 
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="grid">
-    <div class="card">HTML5 & Semantic Structure</div>
-    <div class="card">CSS3 (Flexbox, Grid)</div>
-    <div class="card">Responsive Web Design</div>
-    <div class="card">Basic JavaScript</div>
-  </div>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Personal Website</h3>
-      <p>A rubric-compliant personal site using clean design principles.</p>
-    </div>
-    <div class="card">
-      <h3>Student Financial Calculator</h3>
-      <p>A simple calculator app created for academic purposes.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: Mandacgian0515@gmail.com</p>
-  <p>GitHub: https://github.com/Mandacgian05</p>
-</section>
-
-
-</section>
-
-<footer>
-  
-</footer>
-
-<script>
-  function toggleMode() {
-    document.body.classList.toggle('dark');
-  }
-</script>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+        }
+    </script>
 
 </body>
 </html>
