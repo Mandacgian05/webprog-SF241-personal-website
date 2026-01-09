@@ -130,6 +130,8 @@ footer {
 <nav>
     <strong>GM.</strong>
     <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Academic</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#guestbook">Guestbook</a></li>
     </ul>
@@ -147,9 +149,35 @@ footer {
     <p>BS Computer Forensics | Cybersecurity Enthusiast</p>
 </header>
 
+<!-- ABOUT ME -->
+<section id="about">
+<h2>About Me</h2>
+<div class="card">
+    <p>
+        Hi, I'm Gian Mandac, a 2nd-year <strong>BS Computer Forensics</strong> student.
+        I am passionate about cybersecurity, digital investigations, network security,
+        and secure system design. This portfolio showcases my academic progress
+        and hands-on practice.
+    </p>
+</div>
+</section>
+
+<!-- ACADEMIC PROJECTS -->
+<section id="projects">
+<h2>Academic Projects</h2>
+
+<div class="grid">
+    <div class="card" v-for="project in projects" :key="project.title">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+    </div>
+</div>
+</section>
+
 <!-- GALLERY -->
 <section id="gallery">
 <h2>Picture Gallery</h2>
+
 <div class="grid gallery">
     <div class="card" v-for="img in images" :key="img">
         <img :src="img">
@@ -195,6 +223,20 @@ createApp({
     data() {
         return {
             isDark: false,
+            projects: [
+                {
+                    title: "Network Traffic Analysis",
+                    description: "Analyzed packet traffic using Wireshark to identify threats and suspicious behavior."
+                },
+                {
+                    title: "Database Security Design",
+                    description: "Created a secure ERD focusing on access control and data integrity."
+                },
+                {
+                    title: "Linux Server Hardening",
+                    description: "Configured SSH keys, firewall rules, and permissions on Ubuntu."
+                }
+            ],
             images: [
                 "https://i.ibb.co/CKc34syV/4cb49a5a-46be-4d58-9efa-6ef488a8db9a-1.jpg",
                 "https://picsum.photos/400/300?1",
