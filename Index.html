@@ -1,288 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gian Mandac | Cybersecurity Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gian Mandac | Cybersecurity Portfolio</title>
 
-    <style>
-        :root {
-            --bg-primary: #f4f4f9;
-            --bg-secondary: #ffffff;
-            --text-main: #333333;
-            --text-light: #666666;
-            --accent: #2c3e50;
-            --highlight: #2980b9;
-            --border-radius: 12px;
-        }
+<style>
+/* LIGHT MODE */
+body {
+    --bg-primary: #f4f4f9;
+    --bg-secondary: #ffffff;
+    --text-main: #333;
+    --accent: #2c3e50;
+    --radius: 12px;
 
-        [data-theme="dark"] {
-            --bg-primary: #121212;
-            --bg-secondary: #1e1e1e;
-            --text-main: #e0e0e0;
-            --text-light: #a0a0a0;
-            --accent: #4fa3d1;
-        }
+    font-family: Segoe UI, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-main);
+    margin: 0;
+    transition: 0.3s;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+/* DARK MODE */
+body[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-main: #e0e0e0;
+    --accent: #4fa3d1;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            line-height: 1.6;
-            transition: 0.3s;
-        }
+nav {
+    background: var(--bg-secondary);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        nav {
-            background-color: var(--bg-secondary);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
 
-        nav .logo {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: var(--accent);
-        }
+nav a {
+    text-decoration: none;
+    color: var(--text-main);
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
+.toggle-btn {
+    border: 1px solid var(--text-main);
+    background: none;
+    color: var(--text-main);
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+}
 
-        nav a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 500;
-        }
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+}
 
-        .theme-toggle {
-            background: none;
-            border: 1px solid var(--text-main);
-            color: var(--text-main);
-            padding: 5px 12px;
-            cursor: pointer;
-            border-radius: 20px;
-        }
+.hero {
+    text-align: center;
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: var(--radius);
+}
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+.profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    object-fit: cover;
+}
 
-        header.hero {
-            text-align: center;
-            padding: 3rem 1rem;
-            background: var(--bg-secondary);
-            margin-bottom: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
+section {
+    margin-top: 3rem;
+}
 
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--accent);
-            margin-bottom: 1rem;
-            background-color: #cccccc;
-        }
+h2 {
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
 
-        h1 {
-            margin: 0.5rem 0;
-            color: var(--accent);
-        }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 1rem;
+}
 
-        .subtitle {
-            color: var(--highlight);
-            font-weight: 600;
-        }
+.card {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: var(--radius);
+    border-left: 5px solid var(--accent);
+}
 
-        h2 {
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
-        }
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+}
 
-        section {
-            margin-bottom: 3rem;
-        }
+form input, form textarea, form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: var(--bg-secondary);
+    color: var(--text-main);
+    border: 1px solid #aaa;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: var(--bg-secondary);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--accent);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: var(--accent);
-            color: #fff;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 600px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-    </style>
+footer {
+    text-align: center;
+    padding: 2rem;
+    opacity: 0.7;
+}
+</style>
 </head>
 
 <body>
 
+<div id="app">
+
 <nav>
-    <div class="logo">GM.</div>
+    <strong>GM.</strong>
     <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Work</a></li>
-        <li><a href="#resources">Credits</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#guestbook">Guestbook</a></li>
     </ul>
-    <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+    <button class="toggle-btn" @click="toggleTheme">
+        {{ isDark ? 'Light Mode' : 'Dark Mode' }}
+    </button>
 </nav>
 
 <div class="container">
 
-    <header class="hero">
-        <img
-            src="https://i.ibb.co/CKc34syV/4cb49a5a-46be-4d58-9efa-6ef488a8db9a-1.jpg"
-            alt="Gian Mandac Profile Picture"
-            class="profile-pic">
-        <h1>Gian Mandac</h1>
-        <p class="subtitle">BS Computer Forensics Student</p>
-        <p>2nd Year College Student | Cybersecurity Enthusiast</p>
-    </header>
+<header class="hero">
+    <img class="profile-pic"
+         src="https://i.ibb.co/CKc34syV/4cb49a5a-46be-4d58-9efa-6ef488a8db9a-1.jpg">
+    <h1>Gian Mandac</h1>
+    <p>BS Computer Forensics | Cybersecurity Enthusiast</p>
+</header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="card">
-            <p>
-                Hi, I'm Gian Mandac. I am currently a 2nd-year student pursuing a
-                <strong>Bachelor of Science in Computer Forensics</strong>.
-                I have a strong interest in digital investigations, network security,
-                and secure coding.
-            </p>
-        </div>
-    </section>
+<!-- GALLERY -->
+<section id="gallery">
+<h2>Picture Gallery</h2>
+<div class="grid gallery">
+    <div class="card" v-for="img in images" :key="img">
+        <img :src="img">
+    </div>
+</div>
+</section>
 
-    <!-- VUE SECTION -->
-    <section id="projects">
-        <h2>Academic Projects</h2>
+<!-- GUESTBOOK -->
+<section id="guestbook">
+<h2>Survey / Guestbook</h2>
 
-        <div class="grid">
-            <div class="card" v-for="project in projects" :key="project.title">
-                <h3>{{ project.title }}</h3>
-                <p>{{ project.description }}</p>
-            </div>
-        </div>
-    </section>
+<div class="card">
+<form @submit.prevent="addComment">
+    <input v-model="newComment.name" placeholder="Your Name" required>
+    <textarea v-model="newComment.message" placeholder="Your Comment" required></textarea>
+    <button type="submit">Submit</button>
+</form>
+</div>
 
-    <section id="resources">
-        <h2>Resources</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Resource</th>
-                    <th>Usage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>MDN Web Docs</td>
-                    <td>HTML/CSS Reference</td>
-                </tr>
-                <tr>
-                    <td>ImgBB</td>
-                    <td>Image Hosting</td>
-                </tr>
-                <tr>
-                    <td>Google Gemini</td>
-                    <td>AI Code Assistance</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+<div class="grid" style="margin-top:1rem;">
+    <div class="card" v-for="(comment,index) in comments" :key="index">
+        <strong>{{ comment.name }}</strong>
+        <p>{{ comment.message }}</p>
+    </div>
+</div>
+</section>
 
 </div>
 
 <footer>
-    <p>&copy; 2026 Gian Mandac. All rights reserved.</p>
+<p>&copy; 2026 Gian Mandac</p>
 </footer>
 
-<!-- Vue 3 CDN -->
+</div>
+
+<!-- Vue 3 -->
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 <script>
-    const { createApp } = Vue;
+const { createApp } = Vue;
 
-    createApp({
-        data() {
-            return {
-                projects: [
-                    {
-                        title: "Project A: Network Analysis",
-                        description: "Conducted packet analysis using Wireshark to analyze traffic and identify vulnerabilities."
-                    },
-                    {
-                        title: "Project B: Database Security",
-                        description: "Designed a secure ERD focusing on permissions and data integrity."
-                    },
-                    {
-                        title: "Project C: Linux Hardening",
-                        description: "Configured Ubuntu server with SSH keys and firewall rules."
-                    }
-                ]
-            };
+createApp({
+    data() {
+        return {
+            isDark: false,
+            images: [
+                "https://i.ibb.co/CKc34syV/4cb49a5a-46be-4d58-9efa-6ef488a8db9a-1.jpg",
+                "https://picsum.photos/400/300?1",
+                "https://picsum.photos/400/300?2",
+                "https://picsum.photos/400/300?3"
+            ],
+            newComment: { name: "", message: "" },
+            comments: []
+        };
+    },
+    watch: {
+        isDark(value) {
+            document.body.setAttribute("data-theme", value ? "dark" : "light");
         }
-    }).mount('#projects');
-
-    function toggleTheme() {
-        const body = document.body;
-        const theme = body.getAttribute("data-theme");
-        body.setAttribute("data-theme", theme === "dark" ? "light" : "dark");
+    },
+    mounted() {
+        document.body.setAttribute("data-theme", "light");
+    },
+    methods: {
+        toggleTheme() {
+            this.isDark = !this.isDark;
+        },
+        addComment() {
+            this.comments.push({ ...this.newComment });
+            this.newComment.name = "";
+            this.newComment.message = "";
+        }
     }
+}).mount("#app");
 </script>
 
 </body>
